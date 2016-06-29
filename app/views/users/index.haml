@@ -1,0 +1,9 @@
+%h1= "Bienvenue"
+- @users.each do |user|
+  - if user.admin == true
+    = user.pseudo
+    %br
+    = user.email
+    %br
+
+= link_to "Déconnexion", destroy_user_session_path, method: :delete

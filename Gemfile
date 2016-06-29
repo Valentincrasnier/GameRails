@@ -1,5 +1,9 @@
 source 'https://rubygems.org'
 
+# CSS Materialize
+gem 'materialize-sass'
+# Templating
+gem 'haml'
 # Create login
 gem 'devise'
 # Debugeur for rails
