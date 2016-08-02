@@ -1,0 +1,12 @@
+.container
+  .row
+    - @adventurers.each do |adventurer|
+      .col.s2.center-align
+        %img.responsive-img{ :src => "assets/charset/"+@races[adventurer.race_id - 1].image, :style => 'height:150px' }
+        %h4= adventurer.pseudo
+        %br
+        %h5 Level = #{adventurer.level}
+        = button_to "Select", adventurer_path(adventurer.id), :class => "btn btn-danger", method: :get
+
+- if @adventurers.size < 5
+  = button_to "Create", new_adventurer_path, method: :get

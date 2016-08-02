@@ -1,0 +1,25 @@
+= form_for @adventurer do |f|
+  .container
+    .row.center-align
+      .row
+        .col.s6.offset-s3
+          %h2.white-text Pseudo
+          .white-text= f.text_field :pseudo
+
+  .row
+    .col.s3.center-align
+      .row
+        - @races.each do |race|
+          %label.col.s6{:for => "race#{race.id}", :style => 'padding:0'}
+            %img.responsive-img{:src => "/assets/charset/#{race.image}", :style => 'height:150px' }/
+            %input{:id => "race#{race.id}", :name => "adventurer[race_id]", :type => "radio", :value => race.id}/
+            %label{:for => "race#{race.id}"}= race.name
+
+
+    .classe.col.s5.offset-s3
+      - @classes.each do |classe|
+        %label.col.s6{:for => "classe#{classe.id}", :style => 'padding:0'}
+          %input{:id => "classe#{classe.id}", :name => "adventurer[classe_id]", :type => "radio", :value => classe.id }/
+          %label{:for => "classe#{classe.id}"}= classe.name
+
+    = f.submit
