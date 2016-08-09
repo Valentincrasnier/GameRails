@@ -3,8 +3,13 @@ Rails.application.routes.draw do
   resources :adventurers
 
 
-  get 'stamina/:id' => "adventurers#stamina", as: :adventure
-  
+  get 'stamina/:id' => "adventurers#stamina_part", as: :adventure
+
+  get 'restaure_life/:id' => "adventurers#rest_life", as: :life
+
+  get 'restaure_stamina/:id' => "adventurers#rest_stamina", as: :stamina
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   root 'users#index'

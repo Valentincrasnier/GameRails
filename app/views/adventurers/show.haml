@@ -1,5 +1,10 @@
 .container
   .row
+    .col.center-align
+      action
+
+
+  .row
     .col.s3.center-align.offset-s12
       %img.responsive-img{ :src => "/assets/charset/"+@race.image.to_s, :style => 'height:150px' 'width:150px' }
       %h4= @adventurer.pseudo
@@ -20,5 +25,11 @@
   .row
     - if @adventurer.life == 0
       %h4 "Vous Etes Mort"
+    - elsif @adventurer.stamina == 0
+      %h4 Vous étes trop fatiguer pour Partir,
+      %h4 reposez-vous un peu!
     - else
       = button_to "Partir à l'aventure", adventure_path(@adventurer.id), method: :get
+
+    = button_to "Restaurer la fatigue", stamina_path(@adventurer.id), method: :get
+    = button_to "Restaurer la vie", life_path(@adventurer.id), method: :get
