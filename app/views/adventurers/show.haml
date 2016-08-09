@@ -1,0 +1,24 @@
+.container
+  .row
+    .col.s3.center-align.offset-s12
+      %img.responsive-img{ :src => "/assets/charset/"+@race.image.to_s, :style => 'height:150px' 'width:150px' }
+      %h4= @adventurer.pseudo
+      %br
+      %h5 Level = #{@adventurer.level}
+      %h5 Experience = #{@adventurer.experiences}
+      %h5 Fatigue = #{@adventurer.stamina}
+      %h5 Gold = #{@adventurer.money}
+      %h5 Puissance = #{@adventurer.power}
+      %h5 Armure = #{@adventurer.armor}
+      %h5 Vie = #{@adventurer.life}
+
+
+  .row
+    .col.s3.center-align.offset-s12
+      = button_to "Delete", adventurer_path, method: :delete
+
+  .row
+    - if @adventurer.life == 0
+      %h4 "Vous Etes Mort"
+    - else
+      = button_to "Partir à l'aventure", adventure_path(@adventurer.id), method: :get

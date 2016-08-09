@@ -32,6 +32,10 @@ class AdventurersController < ApplicationController
     redirect_to adventurers_path
   end
 
+  def stamina
+    Adventurer.find(params[:id]).stamina
+    redirect_to adventurer_path
+  end
 private
 
   def params_adventurer
